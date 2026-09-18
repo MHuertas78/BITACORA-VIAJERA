@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bitácora Viajera, blog con consejos prácticos para organizar viajes.">
+  <title>Bitácora Viajera</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <!-- Cabecera principal y navegación -->
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="#inicio">Bitácora Viajera</a>
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#articulos">Artículos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <!-- JavaScript cambia el tema y actualiza este botón -->
+      <button id="temaBtn" class="boton-secundario" type="button" aria-label="Cambiar tema">🌙 Modo oscuro</button>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- Presentación del blog -->
+    <section class="hero">
+      <div class="contenedor hero-contenido">
+        <p class="etiqueta">BLOG DE VIAJES</p>
+        <h1>Ideas sencillas para viajar mejor</h1>
+        <p>Consejos sobre destinos, transporte y preparación del equipaje para disfrutar del viaje desde el primer momento.</p>
+        <a class="boton" href="#articulos">Descubrir artículos</a>
+      </div>
+    </section>
+
+    <section id="articulos" class="contenedor seccion">
+      <div class="titulo-seccion">
+        <div><p class="etiqueta">ÚLTIMAS ENTRADAS</p><h2>Destinos y consejos</h2></div>
+        <!-- Campo utilizado por JavaScript para buscar texto en las tarjetas -->
+        <label class="buscador">Buscar <input id="buscar" type="search" placeholder="Ej.: París" autocomplete="off"></label>
+      </div>
+
+      <!-- Los filtros usan data-categoria para que JavaScript pueda mostrar u ocultar artículos -->
+      <div class="filtros" aria-label="Filtros de artículos">
+        <button class="filtro activo" type="button" data-filtro="todos">Todos</button>
+        <button class="filtro" type="button" data-filtro="ciudad">Ciudades</button>
+        <button class="filtro" type="button" data-filtro="playa">Playa</button>
+        <button class="filtro" type="button" data-filtro="consejos">Consejos</button>
+      </div>
+
+      <div id="listaArticulos" class="rejilla">
+        <article class="tarjeta" data-categoria="ciudad">
+          <div class="icono">🗼</div><span>Ciudad</span><h3>París sin prisas</h3>
+          <p class="resumen">Las distancias pueden ser grandes. Combinar paseos con metro ayuda a aprovechar mejor el día.</p>
+          <div class="detalle"><p>Planifica cada jornada por zonas, utiliza calzado cómodo y consulta el transporte público antes de salir. Así evitarás trayectos innecesarios.</p></div>
+          <button class="leer" type="button" aria-expanded="false">Leer más</button>
+        </article>
+        <article class="tarjeta" data-categoria="ciudad">
+          <div class="icono">🏛️</div><span>Ciudad</span><h3>Roma en una escapada</h3>
+          <p class="resumen">Una ruta organizada permite combinar monumentos, plazas y momentos para descansar.</p>
+          <div class="detalle"><p>Agrupa las visitas por barrios y deja margen entre reservas. Caminar forma parte de la experiencia, pero conviene alternarlo con transporte.</p></div>
+          <button class="leer" type="button" aria-expanded="false">Leer más</button>
+        </article>
+        <article class="tarjeta" data-categoria="playa">
+          <div class="icono">🌴</div><span>Playa</span><h3>Maleta para el Caribe</h3>
+          <p class="resumen">Documentación, ropa ligera y protección solar son tres básicos que no deberían faltar.</p>
+          <div class="detalle"><p>Prepara una lista previa y lleva en el equipaje de mano la documentación, medicación necesaria y una muda básica.</p></div>
+          <button class="leer" type="button" aria-expanded="false">Leer más</button>
+        </article>
+        <article class="tarjeta" data-categoria="consejos">
+          <div class="icono">✈️</div><span>Consejos</span><h3>Antes de salir de viaje</h3>
+          <p class="resumen">Revisar horarios, documentación y reservas reduce imprevistos antes de llegar al aeropuerto.</p>
+          <div class="detalle"><p>Comprueba la documentación requerida para tu destino, revisa los datos de los billetes y llega al aeropuerto con tiempo suficiente.</p></div>
+          <button class="leer" type="button" aria-expanded="false">Leer más</button>
+        </article>
+      </div>
+      <p id="sinResultados" class="sin-resultados" hidden>No hay artículos que coincidan con la búsqueda.</p>
+    </section>
+
+    <!-- Formulario sin backend: JavaScript valida campos y muestra confirmación local -->
+    <section id="contacto" class="contacto">
+      <div class="contenedor contacto-grid">
+        <div><p class="etiqueta">CONTACTO</p><h2>¿Qué destino te interesa?</h2><p>Escribe un mensaje. Este formulario es una demostración y no envía información a un servidor.</p></div>
+        <form id="formContacto" novalidate>
+          <label>Nombre <input id="nombre" type="text" required minlength="2"></label>
+          <label>Correo electrónico <input id="email" type="email" required></label>
+          <label>Mensaje <textarea id="mensaje" rows="4" required minlength="10"></textarea></label>
+          <button class="boton" type="submit">Enviar mensaje</button>
+          <p id="estadoFormulario" class="estado" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="contenedor pie"><p>Bitácora Viajera · Proyecto académico HTML, CSS y JavaScript</p><a href="#inicio">Volver arriba ↑</a></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
